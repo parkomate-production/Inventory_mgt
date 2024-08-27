@@ -1,0 +1,89 @@
+{% extends "todo/base.html" %}
+
+{% block content %}
+
+
+<head>
+
+    <style>
+        #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        }
+        
+
+        #customers td, #customers th {
+        border: 3px solid #919092;
+        padding: 8px;
+        text-align: center;
+        }
+        
+        #customers tr:nth-child(even){background-color: #d4d3cf;text-align: center}
+        #customers tr:nth-child(odd){background-color: #c5c4c0;text-align: center}
+        #customers tr:hover {background-color: #f1f1f1;text-align: center;font-weight: bold;color: rgba(5, 5, 128, 1)}
+        
+        #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: center;
+        background-color: #000000;
+        color: rgba(250, 248, 248, 0.858);
+        }
+        </style>
+</head>
+
+
+<br><hr>
+            <div class="row justify-content-center mt-3">
+                <div class="col-md-10">
+                    <h3> {{title}}</h3>
+                </div>
+            </div>
+
+            <br>
+            <table id="customers">          
+
+                
+                <tr>
+                    <th>
+                        Item name
+                    </th>
+                    <th>
+                        Inventory Quantity
+                    </th>
+                </tr>  
+
+
+                {% for ui in data_information %}
+                        <tr>
+                            <td bgcolor= {{ui.color}}>
+                                {{ui.item_name}}
+                            </td>
+                            <td bgcolor= {{ui.color}}>
+                                {{ui.qty}}
+                            </td>
+                        </tr>  
+                {%endfor%}            
+
+
+
+                
+
+                
+            </table>
+
+
+            <div class="row justify-content-center mt-3">
+                <div class="col-md-2">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <input type = "hidden" name = "inventory"  value = "finished_check_inventory" />
+                        <input type="submit" class="btn btn-dark" value="Download"></button>
+                    </form>    
+                </div>
+            </div>
+
+            
+
+{% endblock %}

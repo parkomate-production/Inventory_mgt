@@ -1,0 +1,83 @@
+{% extends "todo/base.html" %}
+
+{% block content %}
+{% load static %}
+
+<br>
+    <br>
+
+    <div class="row justify-content-center mt-3">
+      <div class="col-md-10">
+      <br>
+        <h3 style="text-align:justify">
+        Parkomate provides the best tailor-made solution with combination of its products to perfectly suit each parking lot maintaining high quality standards, our sensors are manufactured in-house in Maharashtra, India. This make in India solution helps to eliminate the extra costs involved in exporting and this benefits our consumers directly. Our clients are each allotted a service representative to make sure that any issues, if arises, are attended to within 48 working hours Our team is known to provide an onsite walkthrough for better understanding of the parking solution. Supported by a dedicated team of skilled engineers and technicians with the latest knowledge in modern parking solutions industry we strive to provide the best product along with the best service to our customers.
+      </h3>
+      </div>
+    </div>
+
+    <br>
+
+
+    <!-- <div class="w3-content w3-section" style="max-width:100%">
+        <img class="mySlides w3-animate-right" src="{% static 'img/a1.jpg' %}" style="height:400px;width:100%">
+        <img class="mySlides w3-animate-right" src="{% static 'img/a2.jpg' %}" style="height:400px;width:100%">
+        <img class="mySlides w3-animate-right" src="{% static 'img/a3.jpg' %}" style="height:400px;width:100%">
+        <img class="mySlides w3-animate-right" src="{% static 'img/a4.jpg' %}" style="height:400px;width:100%">
+        <img class="mySlides w3-animate-right" src="{% static 'img/a5.jpg' %}" style="height:400px;width:100%">
+        <img class="mySlides w3-animate-right" src="{% static 'img/a6.jpg' %}" style="height:400px;width:100%">
+        <img class="mySlides w3-animate-right" src="{% static 'img/a7.jpg' %}" style="height:400px;width:100%">
+    </div>
+ -->
+
+    <!-- <br>
+<div class="row justify-content-center mt-5">
+        <div class="col-md-10 text-center">
+
+                 <h1 style="color:rgb(18, 188, 204); text-align: center;">Vehicle Registration System</h1>
+        <h2 style="color:rgb(243, 244, 243); text-align: justify;">
+        
+          There are various entities related to the motor vehicles such as manufacturer, dealer,
+          buyer, registration authority, insurance company. According to the norms, all the entities
+          must collaborate for the successful registration of the vehicles. However, current system
+          might get encountered with errors due to input of wrong or incomplete information and also
+          some other consequences such as data manipulation which might be a threat to the system.
+          The vehicle registration process is maintained by Regional Transport Office (RTO). RTO
+          also maintains collection of road tax, license, emission certificate, no objection certificate.
+          Maintaining process related to vehicles by the conventional method might obscure the path of
+          making a system more reliable and complete. The current system face the problem of fraud
+          detection i.e. if a fraud occurred, it is difficult to trace back as different entities such as
+          manufacturer, dealer, RTO and insurance company works in their own terms. By bringing
+          blockchain technology into the scenario helps us to get a more reliable solution as blockchain
+          technology being a distributed ledger technology and also being more promising in data
+          security and privacy helps for carving a more reliable and efficient system. By the means of
+          the proposed project, it is an approach to solve problems underlying in the vehicle
+          registration system and also bind all the different agencies related to vehicles under one portal
+          and get them connected through blockchain technology. Binding them under one portal will
+          make system more reliable as all of them would be in the chain and with blockchain every
+          transaction log along with the timestamp would be available.
+        </h2>
+
+        <br><br><br><br><br>
+        </div>
+    </div> -->
+
+    <script>
+        var myIndex = 0;
+        carousel();
+        
+        function carousel() {
+          var i;
+          var x = document.getElementsByClassName("mySlides");
+          for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";  
+          }
+          myIndex++;
+          if (myIndex > x.length) {myIndex = 1}    
+          x[myIndex-1].style.display = "block";  
+          setTimeout(carousel, 1500);    
+        }
+    </script>
+
+
+
+{% endblock %}

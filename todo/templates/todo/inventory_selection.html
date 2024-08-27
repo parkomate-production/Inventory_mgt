@@ -1,0 +1,104 @@
+{% extends "todo/base.html" %}
+
+{% block content %}
+
+
+<head>
+
+    <style>
+        #customers {
+          font-family: Arial, Helvetica, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        #customers td, #customers th {
+          border: 2px solid #ddd;
+          padding: 8px;
+          text-align: center;
+          font-size: 1.8em;
+          font-weight: bold;
+        }
+        
+        /* #customers tr:nth-child(even){background-color: #f2f2f2;} */
+        
+        #customers tr:hover {background-color: #a8c2a6c9;}
+        
+        #customers th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: center;
+          background-color: #193e1b;
+          color: white;
+          font-size: 2em;
+          font-weight: bold;
+        }
+        </style>
+        
+
+</head>
+
+
+
+<br><br><br>
+
+<table id="customers">          
+        <tr>
+            {% for cat_name in cat_information %}
+                <th> {{cat_name.Category_name}} </th>
+            {% endfor %}    
+        </tr>
+
+        <tr>
+            {% for cat_name in cat_information %}
+                    <td>
+                        <form method="POST">
+                            {% csrf_token %}
+                            <input type = "hidden" name = "check_inventory"  value = "{{cat_name.Category_name}}" />
+                            <input type="submit" class="btn btn-success" value="Check Inventory"></button>
+                        </form>
+                    </td>
+            {% endfor %}    
+        </tr>
+
+        {% if authorized %}
+            <tr>
+                {% for cat_name in cat_information %}
+                        <td>
+                            <form method="POST">
+                                {% csrf_token %}
+                                <input type = "hidden" name = "update_inventory"  value = "{{cat_name.Category_name}}" />
+                                <input type="submit" class="btn btn-warning" value="Update Inventory"></button>
+                            </form>
+                        </td>
+                {% endfor %}    
+            </tr>
+            <tr>
+                {% for cat_name in cat_information %}
+                        <td>
+                            <form method="POST">
+                                {% csrf_token %}
+                                <input type = "hidden" name = "Update_material_list"  value = "{{cat_name.Category_name}}" />
+                                <input type="submit" class="btn btn-primary" value="Update Material List"></button>
+                            </form>
+                        </td>
+                {% endfor %}    
+            </tr>
+        {% endif %}
+
+        <tr>
+            {% for cat_name in cat_information %}
+                    <td>
+                        <form method="POST">
+                            {% csrf_token %}
+                            <input type = "hidden" name = "Detailed_Report"  value = "{{cat_name.Category_name}}" />
+                            <input type="submit" class="btn btn-info" value="Detailed Report"></button>
+                        </form>
+                    </td>
+            {% endfor %}    
+        </tr>
+
+    </table>
+
+    <br><br><br>
+{% endblock %}

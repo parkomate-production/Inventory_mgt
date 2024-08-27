@@ -1,0 +1,40 @@
+{% extends "todo/base.html" %}
+
+{% block content %}
+<br><hr><br>
+    <div class="row justify-content-center mt-3">
+        <div class="col-md-6">
+            <h2>{{title}}</h2>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-3">
+        <div class="col-md-6">
+            {% if msg %}
+                <div class="alert alert-success" role="alert">
+                    {{ msg }}
+                </div>
+            {% endif %}
+            <form method="POST">
+                {% csrf_token %}
+
+
+                <div class="form-group">
+                    <input type="text" name="component_name" class="form-control" id="component_name"  placeholder="Component Name" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="number"  min="0" name="number_to_maintain" class="form-control" id="number_to_maintain"  placeholder="number to be maintained in the inventory" required>
+                </div>
+                
+                <div class="row justify-content-center mt-1">
+                    <div class="col-md-2">    
+                        <button type="submit" class="btn btn-dark">Submit</button>
+                    </div>
+                </div>
+            </form>
+            <hr>
+        </div>
+    </div>
+
+    <br><br><br>
+{% endblock %}
